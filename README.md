@@ -74,3 +74,77 @@ Datos en tiempo real actualizados: {'temperatura': 24.85648409627055, 'humedad':
 - La simulación continua hasta que se ingresa la interrupción `Ctrl + C`.
 
 **Nota:** Los valores pueden variar en cada ejecución porque son aleatorios.
+
+# Calculadora
+
+Este programa en Python es una calculadora sencilla con operaciones básicas. Permite al usuario realizar operaciones como suma, resta, multiplicación y división. Está conformado solo por un archivo.
+
+## calculadora.py
+
+### Función `get_user_input`:
+
+Esta función obtiene la entrada del usuario. Utiliza un bloque `try-except` para manejar errores en caso de que el usuario ingrese algo inválido (que no sea un número). Pide al usuario que ingrese dos números y la operación que desea realizar (+, -, *, /). También, permite ingresar 'exit' para salir. Si hay un error al intentar convertir la entrada a un `float` se imprime un mensaje de error y se solicita la entrada nuevamente.
+
+### Función `ejecutar_operacion`:
+
+Recibe como argumentos la entrada del usuario y una función de callback. Se llama a la función de callback con los dos números ingresados por el usuario y se muestra el resultado.
+
+### Función `main`:
+
+Se definen funciones lambda para ejecutar las operaciones de suma, resta, multiplicación y división. Se crea un diccionario llamado `operations` que relaciona los operadores (+, -, *, /) a las funciones lambda. Utiliza un bucle infinito (`while True`) para pedir la entrada del usuario y realizar las operaciones. Dentro del bucle, se obtiene la entrada del usuario utilizando `get_user_input`. Si el operador ingresado es 'exit' se imprime un mensaje y sale del bucle. Si el operador está en el diccionario `operations` se llama a la función `ejecutar_operacion` con la entrada del usuario y la función lambda que corresponda. Si el operador no está en el diccionario, imprime el mensaje de "Operación inválida". Se previene que el usuario intente usar la operación de división entre cero, en ese caso se imprime un mensaje de "Error: División entre cero".
+
+### Bloque `if __name__ == "__main__":`
+
+Hace que la función `main` se ejecute cuando el script se ejecuta directamente y no cuando es importado como un módulo en otro script.
+
+---
+
+**Instrucciones de uso:**
+
+1. Se debe ejecutar `calculadora.py` para iniciar la calculadora.
+2. El programa va a solicitar dos números y la operación que se desea realizar.
+
+## Ejemplo de Salida del Programa
+
+Al ejecutar el archivo `calculadora.py` se produce una salida similar a la siguiente:
+
+Ingrese un numero: 10  
+Ingrese otro numero: 5  
+Elija una operacion (+, -, *, /) o escriba 'exit' para salir: +  
+Calculando...  
+Resultado: 15.0  
+
+Ingrese un numero: 8  
+Ingrese otro numero: 2  
+Elija una operacion (+, -, *, /) o escriba 'exit' para salir: *  
+Calculando...  
+Resultado: 16.0  
+
+Ingrese un numero: 12  
+Ingrese otro numero: 0  
+Elija una operacion (+, -, *, /) o escriba 'exit' para salir: /  
+Calculando...  
+Resultado: Error: División entre cero  
+
+Ingrese un numero: abc  
+Input invalido. Por favor ingrese numeros.  
+
+Ingrese un numero: 4  
+Ingrese otro numero: 3  
+Elija una operacion (+, -, *, /) o escriba 'exit' para salir: -  
+Calculando...  
+Resultado: 1.0  
+
+Ingrese un numero: 3  
+Ingrese otro numero: 4  
+Elija una operacion (+, -, *, /) o escriba 'exit' para salir: exit  
+Salir.  
+
+## Explicación de los resultados
+
+- **Suma (Operación `+`):** El usuario ingresó 10 y 5 y eligió la suma. El resultado es 15.
+- **Multiplicación (Operación `*`):** El usuario ingresó 8 y 2 y eligió la multiplicación. El resultado es 16.
+- **División entre Cero (`Error: División entre cero`):** El usuario intentó dividir 12 entre 0, por lo cual se muestra un mensaje de error.
+- **Valor inválido (`Operación inválida`):** El usuario intentó ingresar algo que no es un número, por lo cual se imprime un mensaje de error.
+- **Resta (Operación `-`):** El usuario ingresó 4 y 3 y eligió la resta. El resultado es 1.
+- **Salir (`exit`):** El usuario ingresó "exit" y se termina el programa.
